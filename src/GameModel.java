@@ -1,0 +1,47 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+/**
+ * Created by Derp on 21.08.2016.
+ */
+public class GameModel {
+
+    private List<Polygon> polygons = new ArrayList<>();
+
+    public GameModel(File source) {
+
+
+        try (BufferedReader sourceReader = new BufferedReader(new FileReader(source))) {
+
+            Map<String, Vertex> vertices = new HashMap<>();
+            List<String> polygonConstructors = new ArrayList<>();
+
+            String line;
+            while ((line = sourceReader.readLine()) != null) {
+
+                if (Vertex.isValidConstructionString(line)) {
+                    Vertex vertex = new Vertex(line);
+
+                    vertices.put(vertex.getId(), vertex);
+                } else if (Polygon.isValidConstructionString(line)) {
+                    polygonConstructors.add(line);
+                }
+            }
+
+            polygons.addAll(polygonConstructors.stream().map(polygonConstructor -> new Polygon(polygonConstructor, vertices)).collect(Collectors.toList()));
+
+            System.out.println(vertices.size());
+            System.out.println(polygons.size());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+}
