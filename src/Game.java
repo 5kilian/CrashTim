@@ -5,8 +5,6 @@ import javax.swing.*;
  */
 public class Game extends JFrame {
 
-    GameLoopThread gameThread;
-
     public Game() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(400, 300);
@@ -17,8 +15,8 @@ public class Game extends JFrame {
 
         setVisible(true);
 
-        gameThread = new GameLoopThread(level);
-        gameThread.run();
+        Thread gameThread = new GameLoopThread(level);
+        gameThread.start();
     }
 
     public static void main(String[] args) {
