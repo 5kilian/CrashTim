@@ -1,8 +1,5 @@
 import constants.Constants;
 
-import javax.naming.Context;
-import javax.sql.rowset.spi.SyncFactory;
-
 /**
  * Created by tim on 8/21/16.
  */
@@ -25,7 +22,7 @@ public class GameLoopThread extends Thread {
      */
     @Override
     public void run() {
-        long startTime, endTime, sleepTime;
+        long startTime, frameTime, sleepTime;
         long sleepTimeMs, sleepTimeNs;
 
 
@@ -38,11 +35,13 @@ public class GameLoopThread extends Thread {
             //System.out.println(System.nanoTime()-startTime);
             //}
 
-            endTime = System.nanoTime();
+            frameTime = System.nanoTime() - startTime;
 
-            sleepTime = TARGET_FRAMETIME - endTime + startTime;
+            sleepTime = TARGET_FRAMETIME - frameTime;
             sleepTimeMs = sleepTime / MILLISECOND;
             sleepTimeNs = sleepTime % MILLISECOND;
+
+            gameField.setUtilization(frameTime, sleepTime);
 
             try {
                 if (sleepTime > 0) {

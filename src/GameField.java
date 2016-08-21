@@ -1,8 +1,12 @@
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
+import constants.Constants;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.*;
+
 
 /**
  * Created by tim on 20.07.16.
@@ -29,6 +33,8 @@ public class GameField extends JPanel {
         draw();
         counter.addFrame();
         counter.draw(graphics);
+        showUtilization(graphics);
+
     }
 
 
@@ -44,9 +50,8 @@ public class GameField extends JPanel {
 
         private static final long SECOND = 1_000_000_000;
         private static final long SMOOTHING_DURATION = 250 * 1_000_000; // 250ms
-        private static final int FONT_SIZE = 12;
 
-        private final Font counterFont = new Font(Font.MONOSPACED, Font.PLAIN, FONT_SIZE);
+        private final Font counterFont = new Font(Font.MONOSPACED, Font.PLAIN, Constants.FONT_SIZE);
 
         Queue<Long> frameTimes = new ArrayDeque<>();
 
@@ -65,9 +70,32 @@ public class GameField extends JPanel {
 
         public void draw(Graphics g) {
             g.setFont(counterFont);
-            g.drawString(String.format("%d FPS", getFps()), 5, 5 + FONT_SIZE);
+            g.drawString(String.format("%d FPS", getFps()), 5, 5 + Constants.FONT_SIZE);
 
         }
 
+    }
+
+
+    private static final int UTILIZATION_SIZE = 30;
+    private long frameTime = 0, sleepTime = 1;
+
+    public void setUtilization(long frameTime, long sleepTime) {
+        this.frameTime = frameTime;
+        this.sleepTime = sleepTime;
+    }
+
+    public void showUtilization(Graphics g) {
+        int utilization = (int) Math.round(15d * frameTime / (frameTime + sleepTime));
+
+        StringBuilder utilizationBar = new StringBuilder(UTILIZATION_SIZE);
+
+        for (int i = 0; i < utilization; i++)
+            utilizationBar.append('█');
+
+        for (int i = utilization; i < UTILIZATION_SIZE; i++)
+            utilizationBar.append('░');
+
+        g.drawString(utilizationBar.toString(), 5, 2 * (5 + Constants.FONT_SIZE));
     }
 }
