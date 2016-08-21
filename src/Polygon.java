@@ -11,6 +11,7 @@ public class Polygon {
 
     private static final Pattern POLYGON_PATTERN = Pattern.compile("\\(([0-9a-f]{4}),([0-9a-f]{4}),([0-9a-f]{4})\\)(?::([0-9a-f]{6}))?");
 
+    private Color fillColor = null;
     private Shape shape;
 
 
@@ -33,7 +34,10 @@ public class Polygon {
 
         generateShapeFromVertices(polygonVertices);
 
-        // TODO: Implement colors for polygons
+
+        if (m.group(4) != null) {
+            fillColor = Color.decode('#' + m.group(4));
+        }
     }
 
     public Polygon(Vertex... vertices) {

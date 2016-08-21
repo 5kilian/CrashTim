@@ -34,9 +34,6 @@ public class GameModel {
 
             polygons.addAll(polygonConstructors.stream().map(polygonConstructor -> new Polygon(polygonConstructor, vertices)).collect(Collectors.toList()));
 
-            System.out.println(vertices.size());
-            System.out.println(polygons.size());
-
         } catch (IOException e) {
             e.printStackTrace();
         }
