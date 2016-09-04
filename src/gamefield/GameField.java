@@ -8,8 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.AffineTransform;
+import java.util.*;
 import java.util.List;
-import java.util.ArrayList;
 
 
 /**
@@ -19,6 +20,8 @@ public class GameField extends JPanel {
 
     private FpsCounter fpsCounter;
     private List<GameObject> gameObjects;
+
+    private AffineTransform cameraTransform = AffineTransform.getScaleInstance(25, 25);
 
     public GameField() {
         setBackground(Color.GREEN);
@@ -52,6 +55,8 @@ public class GameField extends JPanel {
     }
 
     public void draw(Graphics2D g) {
+        g.setTransform(cameraTransform);
+
         for (GameObject object : gameObjects) {
             object.draw(g);
         }
