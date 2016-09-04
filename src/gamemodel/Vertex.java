@@ -1,3 +1,5 @@
+package gamemodel;
+
 import java.awt.geom.Point2D;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,7 +18,7 @@ public class Vertex {
         Matcher m = VERTEX_PATTERN.matcher(constructionString);
 
         if (!m.matches())
-            throw new IllegalArgumentException("Construction string for Vertex is not valid: " + constructionString);
+            throw new IllegalArgumentException("Construction string for gamemodel.Vertex is not valid: " + constructionString);
 
         id = m.group(1);
 

@@ -1,3 +1,5 @@
+package gamemodel;
+
 import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.util.Map;
@@ -17,7 +19,7 @@ public class Polygon {
 
     public Polygon(String constructionString, Map<String, Vertex> vertices) {
         if (!isValidConstructionString(constructionString))
-            throw new IllegalArgumentException("Construction string for Vertex is not valid: " + constructionString);
+            throw new IllegalArgumentException("Construction string for gamemodel.Vertex is not valid: " + constructionString);
 
         Matcher m = POLYGON_PATTERN.matcher(constructionString);
         m.find();
@@ -27,7 +29,7 @@ public class Polygon {
             String vertexId = m.group(i + 1);
 
             if (!vertices.containsKey(vertexId))
-                throw new IllegalArgumentException("Vertex does not exist: " + vertexId);
+                throw new IllegalArgumentException("gamemodel.Vertex does not exist: " + vertexId);
 
             polygonVertices[i] = vertices.get(vertexId);
         }
