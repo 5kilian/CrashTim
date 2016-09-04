@@ -1,11 +1,14 @@
 package gamefield;
 
 import gamelogic.FpsCounter;
+import gameobjects.GameObject;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
+import java.util.ArrayList;
 
 
 /**
@@ -14,6 +17,7 @@ import java.awt.event.MouseEvent;
 public class GameField extends JPanel {
 
     private FpsCounter fpsCounter;
+    private List<GameObject> gameObjects;
 
     public GameField() {
         setBackground(Color.GREEN);
@@ -25,6 +29,7 @@ public class GameField extends JPanel {
             }
         });
         fpsCounter = new FpsCounter();
+        gameObjects = new ArrayList<GameObject>();
     }
 
     @Override
@@ -33,16 +38,20 @@ public class GameField extends JPanel {
         fpsCounter.draw(graphics);
 
         update();
-        draw();
+        draw((Graphics2D) graphics);
     }
 
 
     public void update() {
-
+        for (GameObject object : gameObjects) {
+            object.update();
+        }
     }
 
-    public void draw() {
-
+    public void draw(Graphics2D g) {
+        for (GameObject object : gameObjects) {
+            object.draw(g);
+        }
     }
 
     public FpsCounter getFpsCounter() {
