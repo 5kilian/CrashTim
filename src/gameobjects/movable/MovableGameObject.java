@@ -7,4 +7,7 @@ import gameobjects.GameObject;
  */
 public abstract class MovableGameObject extends GameObject {
 
+    public MovableGameObject(int x, int y) {
+        super(x, y);
+    }
 }

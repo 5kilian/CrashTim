@@ -3,7 +3,9 @@ package gamefield;
 import gamelogic.FpsCounter;
 import gameobjects.GameObject;
 import gameobjects.immovable.Coin;
-import gameobjects.movable.DummyCar;
+import gameobjects.movable.car.CoinCar;
+import gameobjects.movable.car.DummyCar;
+import gameobjects.movable.car.PlayerCar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,6 +39,9 @@ public class GameField extends JPanel {
         gameObjects = new ArrayList<GameObject>();
 
         gameObjects.add(new DummyCar());
+        gameObjects.add(new PlayerCar(10, 2));
+        gameObjects.add(new CoinCar(20, 2));
+        gameObjects.add(new Coin(30, 2));
     }
 
     @Override

@@ -15,6 +15,10 @@ public abstract class GameObject {
     protected Point2D location;
     protected double rotation;
 
+    public GameObject(int x, int y) {
+        location = new Point2D.Double(x, y);
+    }
+
     public abstract void update(long duration);
 
     public void draw(Graphics2D g) {

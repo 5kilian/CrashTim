@@ -1,6 +1,7 @@
-package gameobjects.movable;
+package gameobjects.movable.car;
 
 import gameobjects.gamemodel.GameModel;
+import gameobjects.movable.MovableGameObject;
 
 import static constants.ModelConstants.CAR_SOURCE;
 
@@ -9,7 +10,8 @@ import static constants.ModelConstants.CAR_SOURCE;
  */
 public abstract class Car extends MovableGameObject {
 
-    public Car() {
+    public Car(int x, int y) {
+        super(x, y);
         model = new GameModel(CAR_SOURCE);
     }
 }

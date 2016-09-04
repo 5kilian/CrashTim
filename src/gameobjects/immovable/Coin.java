@@ -10,7 +10,8 @@ import static constants.ModelConstants.COIN_SOURCE;
  */
 public class Coin extends GameObject {
 
-    public Coin() {
+    public Coin(int x, int y) {
+        super(x, y);
         model = new GameModel(COIN_SOURCE);
     }
 
