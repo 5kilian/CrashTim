@@ -1,7 +1,5 @@
 package gameobjects.gamemodel;
 
-import gamelogic.Game;
-
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
