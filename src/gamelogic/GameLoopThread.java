@@ -10,6 +10,7 @@ import static constants.FpsConstants.*;
 public class GameLoopThread extends Thread {
 
     private GameField gameField;
+    private long lastUpdateTime;
     private boolean isRunning = false;
 
     public GameLoopThread(GameField gameField) {
@@ -26,13 +27,14 @@ public class GameLoopThread extends Thread {
         long sleepTimeMs, sleepTimeNs;
 
 
+        lastUpdateTime = System.nanoTime();
+
         while (isRunning) {
 
             startTime = System.nanoTime();
 
             synchronized (gameField) {
-                gameField.repaint();
-                //System.out.println(System.nanoTime()-startTime);
+                updateGamefield();
 
                 frameTime = System.nanoTime() - startTime;
 
@@ -49,6 +51,15 @@ public class GameLoopThread extends Thread {
                     sleep(sleepTimeMs, (int) sleepTimeNs);
             } catch (Exception ignored) { }
         }
+    }
+
+    private void updateGamefield() {
+        long newUpdateTime = System.nanoTime();
+        long updateDuration = newUpdateTime - lastUpdateTime;
+        gameField.update(updateDuration);
+        lastUpdateTime = newUpdateTime;
+
+        gameField.draw();
     }
 
     public void setRunning(boolean running) {
