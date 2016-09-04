@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static constants.ModelConstants.*;
+
 /**
  * Created by Derp on 21.08.2016.
  */
@@ -69,5 +71,22 @@ public class Polygon {
 
     public static boolean isValidConstructionString(String constructionString) {
         return POLYGON_PATTERN.matcher(constructionString).matches();
+    }
+
+    public void draw(Graphics2D g) {
+        if (fillColor == null)
+            drawWireframe(g);
+        else
+            drawFill(g);
+    }
+
+    private void drawWireframe(Graphics2D g) {
+        g.setColor(WIREFRAME_COLOR);
+        g.draw(shape);
+    }
+
+    private void drawFill(Graphics2D g) {
+        g.setColor(fillColor);
+        g.fill(shape);
     }
 }

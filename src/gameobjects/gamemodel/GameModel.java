@@ -41,7 +41,9 @@ public class GameModel {
     }
 
     public void draw(Graphics2D g) {
-
+        for (Polygon p : polygons) {
+            p.draw(g);
+        }
     }
 
 }
