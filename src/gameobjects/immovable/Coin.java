@@ -3,8 +3,6 @@ package gameobjects.immovable;
 import gameobjects.GameObject;
 import gameobjects.gamemodel.GameModel;
 
-import java.awt.*;
-
 import static constants.ModelConstants.COIN_SOURCE;
 
 /**
