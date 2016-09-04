@@ -55,11 +55,19 @@ public class GameField extends JPanel {
     }
 
     public void draw(Graphics2D g) {
+        setRenderingHints(g);
+
         g.setTransform(cameraTransform);
 
         for (GameObject object : gameObjects) {
             object.draw(g);
         }
+    }
+
+    private void setRenderingHints(Graphics2D g) {
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+        g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
     }
 
     public FpsCounter getFpsCounter() {
