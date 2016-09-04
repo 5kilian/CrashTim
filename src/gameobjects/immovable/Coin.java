@@ -13,17 +13,11 @@ import static constants.ModelConstants.COIN_SOURCE;
 public class Coin extends GameObject {
 
     public Coin() {
-        // TODO Create Gamemodel ctm for Coin
         model = new GameModel(COIN_SOURCE);
     }
 
     @Override
     public void update() {
-
-    }
-
-    @Override
-    public void draw(Graphics2D g) {
 
     }
 }
