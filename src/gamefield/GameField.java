@@ -42,19 +42,21 @@ public class GameField extends JPanel {
     protected void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
         fpsCounter.draw(graphics);
-
-        update();
         draw((Graphics2D) graphics);
     }
 
 
-    public void update() {
+    public void update(long duration) {
         for (GameObject object : gameObjects) {
-            object.update();
+            object.update(duration);
         }
     }
 
-    public void draw(Graphics2D g) {
+    public void draw() {
+        repaint();
+    }
+
+    private void draw(Graphics2D g) {
         setRenderingHints(g);
 
         g.setTransform(cameraTransform);

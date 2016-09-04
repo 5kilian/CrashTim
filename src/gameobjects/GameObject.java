@@ -15,7 +15,7 @@ public abstract class GameObject {
     protected Point2D location;
     protected double rotation;
 
-    public abstract void update();
+    public abstract void update(long duration);
 
     public void draw(Graphics2D g) {
         AffineTransform savedTransform = g.getTransform();
