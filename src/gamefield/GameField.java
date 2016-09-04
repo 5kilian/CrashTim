@@ -2,6 +2,7 @@ package gamefield;
 
 import gamelogic.FpsCounter;
 import gameobjects.GameObject;
+import gameobjects.immovable.Coin;
 import gameobjects.movable.DummyCar;
 
 import javax.swing.*;
@@ -24,12 +25,12 @@ public class GameField extends JPanel {
     private AffineTransform cameraTransform = AffineTransform.getScaleInstance(25, 25);
 
     public GameField() {
-        setBackground(Color.GREEN);
+        setBackground(new Color(143, 188, 143));
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
                 super.mouseClicked(mouseEvent);
-                setBackground(Color.RED);
+                setBackground(new Color(188, 143, 188));
             }
         });
         fpsCounter = new FpsCounter();

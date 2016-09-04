@@ -17,7 +17,7 @@ public class DummyCar extends Car {
     }
 
     @Override
-    public void update() {
+    public void update(long duration) {
 
     }
 }
