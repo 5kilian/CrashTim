@@ -5,10 +5,13 @@ import gameobjects.GameObject;
 import gameobjects.immovable.Coin;
 import gameobjects.movable.car.CoinCar;
 import gameobjects.movable.car.DummyCar;
+import gameobjects.movable.car.EnemyCar;
 import gameobjects.movable.car.PlayerCar;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.AffineTransform;
@@ -28,6 +31,7 @@ public class GameField extends JPanel {
 
     public GameField() {
         setBackground(new Color(143, 188, 143));
+        setFocusable(true);
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
@@ -36,12 +40,33 @@ public class GameField extends JPanel {
             }
         });
         fpsCounter = new FpsCounter();
-        gameObjects = new ArrayList<GameObject>();
+        gameObjects = new ArrayList<>();
 
+
+        initializeComponents();
+    }
+
+    public void initializeComponents() {
         gameObjects.add(new DummyCar());
-        gameObjects.add(new PlayerCar(10, 2));
+
+        PlayerCar player = new PlayerCar(10, 2);
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent keyEvent) {
+                super.keyPressed(keyEvent);
+                player.keyPressed(keyEvent);
+            }
+
+            @Override
+            public void keyReleased(KeyEvent keyEvent) {
+                super.keyReleased(keyEvent);
+                player.keyReleased(keyEvent);
+            }
+        });
+        gameObjects.add(player);
         gameObjects.add(new CoinCar(20, 2));
         gameObjects.add(new Coin(30, 2));
+        gameObjects.add(new EnemyCar(10, 20));
     }
 
     @Override

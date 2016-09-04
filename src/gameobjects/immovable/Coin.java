@@ -6,7 +6,7 @@ import gameobjects.gamemodel.GameModel;
 import static constants.ModelConstants.COIN_SOURCE;
 
 /**
- * Created by tim on 9/4/16.
+ * Created by tim on 2016-09-04.
  */
 public class Coin extends GameObject {
 

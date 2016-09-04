@@ -5,7 +5,7 @@ import gamefield.GameField;
 import static constants.FpsConstants.*;
 
 /**
- * Created by tim on 8/21/16.
+ * Created by tim on 2016-08-21.
  */
 public class GameLoopThread extends Thread {
 

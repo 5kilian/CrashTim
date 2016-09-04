@@ -1,7 +1,7 @@
 package constants;
 
 /**
- * Created by tim on 9/4/16.
+ * Created by tim on 04.09.2016.
  */
 public class FpsConstants {
 

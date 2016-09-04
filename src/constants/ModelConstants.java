@@ -11,6 +11,7 @@ public class ModelConstants {
 
     public static final String COIN_SOURCE = "resources/objects/immovable/coin.cto";
     public static final String CAR_SOURCE = "resources/objects/movable/car.cto";
+    public static final String ENEMY_CAR_SOURCE = "resources/objects/movable/enemyCar.cto";
     public static final String MOVABLE_COIN_SOURCE = "resources/objects/movable/movableCoin.cto";
 
 }

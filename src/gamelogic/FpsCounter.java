@@ -6,7 +6,7 @@ import java.util.*;
 import static constants.FpsConstants.*;
 
 /**
- * Created by tim on 8/29/16.
+ * Created by tim on 2016-08-29.
  */
 public class FpsCounter {
 

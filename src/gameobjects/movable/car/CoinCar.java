@@ -5,7 +5,7 @@ import gameobjects.gamemodel.GameModel;
 import static constants.ModelConstants.MOVABLE_COIN_SOURCE;
 
 /**
- * Created by tim on 9/4/16.
+ * Created by tim on 2016-09-04.
  */
 public class CoinCar extends  Car {
 

@@ -7,7 +7,7 @@ import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 
 /**
- * Created by tim on 9/4/16.
+ * Created by tim on 2016-09-04.
  */
 public abstract class GameObject {
 
@@ -30,5 +30,13 @@ public abstract class GameObject {
         model.draw(g);
 
         g.setTransform(savedTransform);
+    }
+
+    public double getX() {
+        return location.getX();
+    }
+
+    public double getY() {
+        return location.getY();
     }
 }
