@@ -13,5 +13,7 @@ public class LogConstants {
     public static String LOG_TAG_WARNING = "WARNING";
     public static String LOG_TAG_ERROR = "ERROR";
 
-    public static DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
+    public static DateTimeFormatter TIME_DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
+    public static DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("HH-mm-ss");
+    public static DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 }
