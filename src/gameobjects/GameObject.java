@@ -3,6 +3,7 @@ package gameobjects;
 import gameobjects.gamemodel.GameModel;
 
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Point2D;
 
 /**
@@ -12,10 +13,18 @@ public abstract class GameObject {
 
     protected GameModel model;
     protected Point2D location;
+    protected double rotation;
 
     public abstract void update();
 
     public void draw(Graphics2D g) {
+        AffineTransform savedTransform = g.getTransform();
+
+        g.translate(location.getX(), location.getY());
+        g.rotate(rotation);
+
         model.draw(g);
+
+        g.setTransform(savedTransform);
     }
 }
