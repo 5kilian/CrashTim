@@ -5,7 +5,5 @@ package constants;
  */
 public class Constants {
 
-    public static final int FONT_SIZE = 12;
-    public static final long FPS = 60;
 
 }
