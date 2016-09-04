@@ -2,6 +2,7 @@ package gamefield;
 
 import gamelogic.FpsCounter;
 import gameobjects.GameObject;
+import gameobjects.movable.DummyCar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,6 +31,8 @@ public class GameField extends JPanel {
         });
         fpsCounter = new FpsCounter();
         gameObjects = new ArrayList<GameObject>();
+
+        gameObjects.add(new DummyCar());
     }
 
     @Override
