@@ -1,7 +1,5 @@
 package gamelogic;
 
-import constants.Constants;
-
 import java.awt.*;
 import java.util.*;
 
