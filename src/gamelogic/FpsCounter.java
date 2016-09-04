@@ -3,6 +3,7 @@ package gamelogic;
 import java.awt.*;
 import java.util.*;
 
+import static constants.Constants.*;
 import static constants.FpsConstants.*;
 
 /**

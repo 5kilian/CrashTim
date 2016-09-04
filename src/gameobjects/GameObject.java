@@ -19,7 +19,7 @@ public abstract class GameObject {
         location = new Point2D.Double(x, y);
     }
 
-    public abstract void update(long duration);
+    public abstract void update(double duration);
 
     public void draw(Graphics2D g) {
         AffineTransform savedTransform = g.getTransform();

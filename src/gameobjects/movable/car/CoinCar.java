@@ -15,7 +15,7 @@ public class CoinCar extends  Car {
     }
 
     @Override
-    public void update(long duration) {
+    public void update(double duration) {
 
     }
 }

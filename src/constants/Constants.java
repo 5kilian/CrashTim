@@ -5,5 +5,7 @@ package constants;
  */
 public class Constants {
 
+    public static final long MILLISECOND = 1_000_000;
+    public static final long SECOND = 1_000_000_000;
 
 }

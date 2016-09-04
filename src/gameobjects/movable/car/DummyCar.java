@@ -2,6 +2,7 @@ package gameobjects.movable.car;
 
 import constants.ModelConstants;
 import gameobjects.gamemodel.GameModel;
+import logger.Log;
 
 import java.awt.geom.Point2D;
 
@@ -21,7 +22,7 @@ public class DummyCar extends Car {
     }
 
     @Override
-    public void update(long duration) {
-
+    public void update(double duration) {
+        
     }
 }
