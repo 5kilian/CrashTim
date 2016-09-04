@@ -15,7 +15,7 @@ public class Coin extends GameObject {
     }
 
     @Override
-    public void update() {
+    public void update(long duration) {
 
     }
 }
