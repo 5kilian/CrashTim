@@ -1,10 +1,13 @@
 package logger;
 
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Timestamp;
+
+import static constants.LogConstants.*;
 
 /**
  * Created by tim on 9/4/16.
@@ -16,27 +19,37 @@ public final class Log {
     private Log() { }
 
     public static void d(String message) {
-        write("DEBUG: " + message);
+        log(LOG_TAG_DEBUG, message);
     }
 
     public static void i(String message) {
-        write("INFO: " + message);
+        log(LOG_TAG_INFO, message);
     }
 
     public static void v(String message) {
-        write("VERBOSE: " + message);
+        log(LOG_TAG_VERBOSE, message);
     }
 
     public static void w(String message) {
-        write("WARNING: " + message);
+        log(LOG_TAG_WARNING, message);
     }
 
     public static void e(String message) {
-        write("ERROR: " + message);
+        log(LOG_TAG_ERROR, message);
+    }
+
+    private static void log(String tag, String message) {
+        log(tag + ": " + message);
+    }
+
+    private static void log(String message) {
+        String formattedMessage = getFormattedDate() + " : " + message + "\r\n";
+
+        System.out.println(formattedMessage);
+        write(formattedMessage);
     }
 
     private static void write(String message) {
-        message = getFormatedDate() + " : " + message + "\r\n";
         try {
             getBufferedWriter().write(message);
             getBufferedWriter().flush();
@@ -47,7 +60,7 @@ public final class Log {
 
     private static BufferedWriter getBufferedWriter() throws IOException {
         if (writer == null) {
-            File src = new File("log/"+ getFormatedDate() + ".txt");
+            File src = new File("log/"+ getFormattedDate() + ".txt");
             System.out.println(src.getAbsolutePath());
             if (!src.exists()) {
                 if (!src.getParentFile().exists())
@@ -59,8 +72,8 @@ public final class Log {
         return writer;
     }
 
-    private static String getFormatedDate() {
+    private static String getFormattedDate() {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        return timestamp.toLocalDateTime().toString();
+        return timestamp.toLocalDateTime().format(TIME_FORMAT);
     }
 }
