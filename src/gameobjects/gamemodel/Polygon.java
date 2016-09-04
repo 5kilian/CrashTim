@@ -1,4 +1,4 @@
-package gamemodel;
+package gameobjects.gamemodel;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;

@@ -1,4 +1,4 @@
-package gameobjects.movablegameobjects;
+package gameobjects.movable;
 
 /**
  * Created by tim on 9/4/16.

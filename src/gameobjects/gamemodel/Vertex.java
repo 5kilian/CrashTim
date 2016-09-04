@@ -1,4 +1,4 @@
-package gamemodel;
+package gameobjects.gamemodel;
 
 import java.awt.geom.Point2D;
 import java.util.regex.Matcher;

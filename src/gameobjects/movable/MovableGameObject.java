@@ -1,4 +1,4 @@
-package gameobjects.movablegameobjects;
+package gameobjects.movable;
 
 import gameobjects.GameObject;
 

@@ -1,5 +1,6 @@
-package gamemodel;
+package gameobjects.gamemodel;
 
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,8 +16,6 @@ public class GameModel {
     private List<Polygon> polygons = new ArrayList<>();
 
     public GameModel(File source) {
-
-
         try (BufferedReader sourceReader = new BufferedReader(new FileReader(source))) {
 
             Map<String, Vertex> vertices = new HashMap<>();
@@ -39,7 +38,9 @@ public class GameModel {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    public void draw(Graphics2D g) {
 
     }
 
