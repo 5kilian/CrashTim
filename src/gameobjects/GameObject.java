@@ -15,5 +15,7 @@ public abstract class GameObject {
 
     public abstract void update();
 
-    public abstract void draw(Graphics2D g);
+    public void draw(Graphics2D g) {
+        model.draw(g);
+    }
 }
