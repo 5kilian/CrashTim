@@ -15,6 +15,7 @@ public class Polygon {
 
     private static final Pattern POLYGON_PATTERN = Pattern.compile("\\(([0-9a-f]{4}),([0-9a-f]{4}),([0-9a-f]{4})\\)(?::([0-9a-f]{6}))?");
     private static final Stroke ANTIALIAS_ARTIFACT_STROKE = new BasicStroke(0.2f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND);
+    private static final Stroke WIREFRAME_STROKE = new BasicStroke(0.15f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND);
 
     private Color fillColor = null;
     private Shape shape;
@@ -82,6 +83,7 @@ public class Polygon {
     }
 
     private void drawWireframe(Graphics2D g) {
+        g.setStroke(WIREFRAME_STROKE);
         g.setColor(WIREFRAME_COLOR);
         g.draw(shape);
     }
