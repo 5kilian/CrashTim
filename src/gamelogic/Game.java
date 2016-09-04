@@ -1,3 +1,7 @@
+package gamelogic;
+
+import gamefield.GameField;
+
 import javax.swing.*;
 
 /**

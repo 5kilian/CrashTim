@@ -1,11 +1,11 @@
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
-import constants.Constants;
+package gamefield;
+
+import gamelogic.FpsCounter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.*;
 
 
 /**
