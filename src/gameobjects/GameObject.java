@@ -1,21 +1,19 @@
 package gameobjects;
 
-import gamemodel.GameModel;
+import gameobjects.gamemodel.GameModel;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 
 /**
  * Created by tim on 9/4/16.
  */
-public class GameObject {
+public abstract class GameObject {
 
-    protected GameModel figure = null;
+    protected GameModel model;
+    protected Point2D location;
 
-    public void update() {
+    public abstract void update();
 
-    }
-
-    public void draw(Graphics2D g) {
-
-    }
+    public abstract void draw(Graphics2D g);
 }

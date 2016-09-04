@@ -1,5 +1,7 @@
 package gameobjects.gamemodel;
 
+import gamelogic.Game;
+
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -14,6 +16,10 @@ import java.util.stream.Collectors;
 public class GameModel {
 
     private List<Polygon> polygons = new ArrayList<>();
+
+    public GameModel(String source) {
+        this(new File(source));
+    }
 
     public GameModel(File source) {
         try (BufferedReader sourceReader = new BufferedReader(new FileReader(source))) {
