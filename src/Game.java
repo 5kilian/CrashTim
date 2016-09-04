@@ -15,7 +15,8 @@ public class Game extends JFrame {
 
         setVisible(true);
 
-        Thread gameThread = new GameLoopThread(level);
+        GameLoopThread gameThread = new GameLoopThread(level);
+        gameThread.setRunning(true);
         gameThread.start();
     }
 

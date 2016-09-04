@@ -1,19 +1,15 @@
-import constants.Constants;
+import static constants.FpsConstants.*;
 
 /**
  * Created by tim on 8/21/16.
  */
 public class GameLoopThread extends Thread {
 
-    private static final long MILLISECOND = 1_000_000;
-    private static final long TARGET_FRAMETIME = 1_000_000_000 / Constants.FPS;
-
     private GameField gameField;
-    private boolean isRunning;
+    private boolean isRunning = false;
 
     public GameLoopThread(GameField gameField) {
         this.gameField = gameField;
-        isRunning = true;
     }
 
 
@@ -30,30 +26,28 @@ public class GameLoopThread extends Thread {
 
             startTime = System.nanoTime();
 
-            //synchronized (gameField) {
-            gameField.repaint();
-            //System.out.println(System.nanoTime()-startTime);
-            //}
+            synchronized (gameField) {
+                gameField.repaint();
+                //System.out.println(System.nanoTime()-startTime);
 
-            frameTime = System.nanoTime() - startTime;
+                frameTime = System.nanoTime() - startTime;
 
-            sleepTime = TARGET_FRAMETIME - frameTime;
-            sleepTimeMs = sleepTime / MILLISECOND;
-            sleepTimeNs = sleepTime % MILLISECOND;
+                sleepTime = TARGET_FRAMETIME - frameTime;
+                sleepTimeMs = sleepTime / MILLISECOND;
+                sleepTimeNs = sleepTime % MILLISECOND;
 
-            gameField.setUtilization(frameTime, sleepTime);
+                gameField.getFpsCounter().addFrame();
+                gameField.getFpsCounter().setUtilization(frameTime, sleepTime);
+            }
 
             try {
-                if (sleepTime > 0) {
+                if (sleepTime > 0)
                     sleep(sleepTimeMs, (int) sleepTimeNs);
-                }
-            } catch (Exception ignored) {
-            }
+            } catch (Exception ignored) { }
         }
     }
 
     public void setRunning(boolean running) {
         isRunning = running;
     }
-
 }
