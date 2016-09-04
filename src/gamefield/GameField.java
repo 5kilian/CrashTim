@@ -77,7 +77,7 @@ public class GameField extends JPanel {
     }
 
 
-    public void update(long duration) {
+    public void update(double duration) {
         for (GameObject object : gameObjects) {
             object.update(duration);
         }

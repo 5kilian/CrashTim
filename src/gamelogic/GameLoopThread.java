@@ -2,6 +2,7 @@ package gamelogic;
 
 import gamefield.GameField;
 
+import static constants.Constants.*;
 import static constants.FpsConstants.*;
 
 /**
@@ -56,7 +57,8 @@ public class GameLoopThread extends Thread {
     private void updateGamefield() {
         long newUpdateTime = System.nanoTime();
         long updateDuration = newUpdateTime - lastUpdateTime;
-        gameField.update(updateDuration);
+        double updateDurationSeconds = (double) updateDuration / SECOND;
+        gameField.update(updateDurationSeconds);
         lastUpdateTime = newUpdateTime;
 
         gameField.draw();
