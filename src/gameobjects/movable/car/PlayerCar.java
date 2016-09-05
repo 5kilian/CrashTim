@@ -19,19 +19,16 @@ public class PlayerCar extends Car {
 
     @Override
     public void update(double duration) {
-        location.setLocation(getX(), getY()+velocity);
+        super.update(duration);
     }
 
     public void keyPressed(KeyEvent e) {
-        Log.d("Key pressed");
         if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-            Log.d("Space pressed");
-            velocity = 1;
-        } else Log.d("Other key pressed");
+            direction = 'l';
+        }
     }
 
     public void keyReleased(KeyEvent e) {
-        velocity = 0;
-        Log.d("Key released");
+        direction = 'r';
     }
 }

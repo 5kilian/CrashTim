@@ -32,11 +32,23 @@ public abstract class GameObject {
         g.setTransform(savedTransform);
     }
 
+    public void setX(double x) {
+        location.setLocation(x, getY());
+    }
+
     public double getX() {
         return location.getX();
     }
 
+    public void setY(double y) {
+        location.setLocation(getX(), y);
+    }
+
     public double getY() {
         return location.getY();
+    }
+
+    public void setXY(double x, double y) {
+        location.setLocation(x, y);
     }
 }

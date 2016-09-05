@@ -49,7 +49,7 @@ public class GameField extends JPanel {
     public void initializeComponents() {
         gameObjects.add(new DummyCar());
 
-        PlayerCar player = new PlayerCar(10, 2);
+        PlayerCar player = new PlayerCar(10, 30);
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent keyEvent) {
